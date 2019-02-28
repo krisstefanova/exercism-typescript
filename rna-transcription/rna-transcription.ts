@@ -1,3 +1,5 @@
+type Nucleotide = 'G' | 'C' | 'A' | 'T'
+
 class Transcriptor {
     private translateNucleotide(x: string): string {
         if (x === 'G') return 'C';
@@ -44,6 +46,16 @@ class Transcriptor {
         }
         return rna
     }
+
+    // another
+
+    toRna___ = ( input: string ): string =>
+    input.split('').map(this.translateNucleotide2).join('')
+
+    private translateNucleotide2 = (input: string): string =>
+        Transcriptor.dnaToRna[input as Nucleotide] || this.raiseError()
+
+    private raiseError = () => { throw new Error('Invalid input DNA.') }
 }
 
 export default Transcriptor
